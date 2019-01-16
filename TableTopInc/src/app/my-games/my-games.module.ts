@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule }   from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { ListGamesComponent }from './list-games/list-games.component';
 import { MyGamesComponent } from './my-games.component';
-import { ItemGamesComponent } from './item-games/item-games.component';
+import { AddGameComponent } from './add-game/add-game.component';
 
 @NgModule({
   declarations: [ListGamesComponent,
     MyGamesComponent,
-    ItemGamesComponent
+    AddGameComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    RouterModule
   ],
   exports:[ListGamesComponent,
     MyGamesComponent,
-    ItemGamesComponent
   ]
 })
 export class MyGamesModule { }

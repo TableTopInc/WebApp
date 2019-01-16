@@ -1,3 +1,4 @@
+<div class="conteiner">
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
@@ -8,20 +9,24 @@
       <th>SessionMinutesTo</th>
       <th>AgeFrom</th>
       <th>YearReleased</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-      <td>6</td>
-      <td>7</td>
+    <tr *ngFor = 'let game of game'>
+      <td>{{game.Title}}</td>
+      <td>{{game.PlayersFrom}}</td>
+      <td>{{game.PlayersTo}}</td>
+      <td>{{game.SessionMinutesFrom}}</td>
+      <td>{{game.SessionMinutesTo}}</td>
+      <td>{{game.AgeFrom}}</td>
+      <td>{{game.YearReleased}}</td>
+      <td><input type="button" value="Delete" (click)="onDelete(game)" class="btn btn-danger" /></td>
     </tr>
-    <tr app-item-games></tr>
-    
-     
   </tbody>
 </table>
+<button type="button" class="btn btn-success add" [routerLink]="['/add']">ADD  GAME</button>
+</div>
+
+ 
+  
