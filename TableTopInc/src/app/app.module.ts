@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MyGamesModule } from './my-games/my-games.module';
 import { SharedModule } from './shared/shared.module';
 import { GameService } from './shared/services/game-service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,9 @@ import { GameService } from './shared/services/game-service';
     AppRoutingModule,
     MyGamesModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [GameService],
   bootstrap: [AppComponent]
