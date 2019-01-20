@@ -27,9 +27,6 @@ export class AddGameComponent implements OnInit {
   AgeFrom;
   YearReleased;
 
-  newTitle:string;
-  newDescription:string;
-  newCoverUrl:string;
 
 
   constructor(private gameService:GameService, private route: ActivatedRoute) { 
