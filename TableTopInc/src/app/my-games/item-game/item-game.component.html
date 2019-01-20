@@ -1,0 +1,46 @@
+
+<div class="container">
+    <h3>Details of Game</h3>
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <th>Title</th>
+          <td>{{itemGame?.title}}</td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td>{{itemGame?.description}}</td>
+        </tr>
+        <tr>
+          <th>CoverUrl</th>
+          <td>{{itemGame?.coverUrl}}</td>
+        </tr>
+        <tr>
+          <th>PlayersFrom</th>
+          <td>{{itemGame?.playersFrom}}</td>
+        </tr>
+        <tr>
+          <th>PlayersTo</th>
+          <td>{{itemGame?.playersTo}}</td>
+        </tr>
+        <tr>
+          <th>SessionMinutesFrom</th>
+          <td>{{itemGame?.sessionMinutesFrom}}</td>
+        </tr>
+        <tr>
+          <th>SessionMinutesTo</th>
+          <td>{{itemGame?.sessionMinutesTo}}</td>
+        </tr>
+        <tr>
+          <th>AgeFrom</th>
+          <td>{{itemGame?.ageFrom}}</td>
+        </tr>
+        <tr>
+          <th>YearReleased</th>
+          <td>{{itemGame?.YearReleased}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success add" [routerLink]="['/']">TO LIST GAME</button>
+    <button type="button" class="btn btn-primary" routerLink="/edit/{{itemGame.id}}">EDIT GAME</button>
+</div> 

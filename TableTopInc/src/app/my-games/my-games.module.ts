@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListGamesComponent }from './list-games/list-games.component';
 import { MyGamesComponent } from './my-games.component';
 import { AddGameComponent } from './add-game/add-game.component';
+import { ItemGameComponent } from './item-game/item-game.component';
 
 @NgModule({
   declarations: [ListGamesComponent,
     MyGamesComponent,
-    AddGameComponent
+    AddGameComponent,
+    ItemGameComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,8 @@ import { AddGameComponent } from './add-game/add-game.component';
   ],
   exports:[ListGamesComponent,
     MyGamesComponent,
+    ItemGameComponent,
+    AddGameComponent,
   ]
 })
 export class MyGamesModule { }

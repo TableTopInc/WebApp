@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../shared/services/game-service';
+import { Game } from '../../shared/models/game';
+import { ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-add-game',
@@ -10,6 +13,8 @@ import { GameService } from '../../shared/services/game-service';
 export class AddGameComponent implements OnInit {
 
   public game = this.gameService.getGames();
+  itemGame:Game;
+ 
 
   Id;
   Title = '';
@@ -22,9 +27,23 @@ export class AddGameComponent implements OnInit {
   AgeFrom;
   YearReleased;
 
-  constructor(private gameService:GameService) { }
+  newTitle:string;
+  newDescription:string;
+  newCoverUrl:string;
+
+
+  constructor(private gameService:GameService, private route: ActivatedRoute) { 
+    
+  }
 
   ngOnInit() {
+    this.getGame();
+  }
+  
+  getGame(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.gameService.getGame(id)
+    .subscribe(itemGame => this.itemGame = itemGame);
   }
 
   onSubmit() {
@@ -32,5 +51,5 @@ export class AddGameComponent implements OnInit {
     this.gameService.addGame(this.Id, this.Title, this.Description, this.CoverUrl, this.PlayersFrom, 
       this.PlayersTo, this.SessionMinutesFrom, this.SessionMinutesTo, this.AgeFrom, this.YearReleased);
   }
-
+ 
 }
