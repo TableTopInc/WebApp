@@ -1,0 +1,31 @@
+<div class="conteiner" *ngIf="role">
+    <h1>Edit role.</h1>
+    <form #form='ngForm' (ngSubmit)='form.reset()'>
+        <div class="form-group">
+          <label for="t">Title:</label>
+          <input type="text" class="form-control" id="t" name = 'title' [(ngModel)]="role.title" 
+          required #title="ngModel">
+          <div [hidden]="title.valid || title.untouched" class="alert">
+              This field is required!
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary add" [disabled]="form.form.invalid" 
+        routerLink="/itemDesignerRoles/{{role.id}}">SAVE CHANGES</button>
+      </form>
+  </div>
+  
+  
+  <div class="conteiner" *ngIf="!role">
+    <h1>Add new role.</h1>
+    <form #form='ngForm' (ngSubmit)='form.reset()'>
+        <div class="form-group">
+          <label for="t">Title:</label>
+          <input type="text" class="form-control" id="t" name = 'title' [(ngModel)]="Title" required  #title="ngModel">
+          <div [hidden]="title.valid" class="alert">
+              This field is required!
+          </div>
+        </div>
+        <button type="submit" (click)="onSubmit()" class="btn btn-primary add" [routerLink]="['/designerRoles']"
+        [disabled]="form.form.invalid">ADD  ROLE</button>
+      </form>
+  </div>

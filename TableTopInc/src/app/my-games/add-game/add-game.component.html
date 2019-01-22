@@ -63,7 +63,6 @@
 
 
 <div class="conteiner" *ngIf="!itemGame">
-    <button type="button" class="btn btn-success add" [routerLink]="['/']">TO LIST GAME</button>
   <h1>Add new game.</h1>
   <form #form='ngForm' (ngSubmit)='form.reset()'>
       <div class="form-group">
@@ -118,7 +117,7 @@
             Insert the year!
         </div>
       </div>
-      <button type="submit" (click)="onSubmit()" class="btn btn-success add" [routerLink]="['/']"
+      <button type="submit" (click)="onSubmit()" class="btn btn-primary add" [routerLink]="['/']"
       [disabled]="form.form.invalid">ADD  GAME</button>
     </form>
 </div>

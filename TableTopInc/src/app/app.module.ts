@@ -7,7 +7,12 @@ import { AppComponent } from './app.component';
 import { MyGamesModule } from './my-games/my-games.module';
 import { SharedModule } from './shared/shared.module';
 import { GameService } from './shared/services/game-service';
+import { RolesService } from './shared/services/roles-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
+import { DesignerRolesModule} from './designer-roles/designer-roles.module';
+
+
 
 
 @NgModule({
@@ -22,9 +27,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     HttpClientModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule,
+    DesignerRolesModule
   ],
-  providers: [GameService],
+  providers: [GameService,  RolesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

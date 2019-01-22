@@ -1,0 +1,18 @@
+<div class="conteiner">
+  <table class="table table-hover">
+      <thead class="thead-dark">
+          <tr>
+            <th colspan="4">List of game designer roles</th>
+          </tr>
+        </thead>
+    <tbody>
+      <tr *ngFor = 'let roles of roles'>
+        <th>Title</th>
+        <td>{{roles.title}}</td>
+        <td><input type="button" value="Details" routerLink="/itemDesignerRoles/{{roles.id}}"  class="btn btn-success"/></td>
+        <td><input type="button" value="Delete" (click)="onDelete(roles)" class="btn btn-danger" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-primary add" [routerLink]="['/addDesignerRoles']">ADD  ROLE</button>
+</div>
