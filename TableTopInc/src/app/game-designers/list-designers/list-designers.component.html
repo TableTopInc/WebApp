@@ -1,0 +1,23 @@
+<div class="conteiner">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>PhotoUrl</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let designers of designers'>
+        <td>{{designers.firstName}}</td>
+        <td>{{designers.lastName}}</td>
+        <td><img src="{{designers.photoUrl}}" alt="No photo"></td>
+        <td><input type="button" value="Details" routerLink="/itemGameDesigner/{{designers.id}}"  class="btn btn-success"/></td>
+        <td><input type="button" value="Delete" (click)="onDelete(designers)" class="btn btn-danger" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-primary add"[routerLink]="['/addDesigner']">ADD DESIGNER</button>
+  </div>

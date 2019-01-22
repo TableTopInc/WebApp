@@ -21,8 +21,9 @@ export class ListGamesComponent implements OnInit {
     this.getGames();
   }
 
-  onDelete(game: Game) {
-    this.gameService.deleteGame(game);
+  onDelete(game: Game): void {
+    this.game = this.game.filter(h => h !== game);
+    this.gameService.deleteGame(game).subscribe();
   }
   
   getGames(): void {

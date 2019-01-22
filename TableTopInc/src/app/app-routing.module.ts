@@ -7,6 +7,9 @@ import { ItemGameComponent } from './my-games/item-game/item-game.component';
 import { ListRolesComponent } from './designer-roles/list-roles/list-roles.component';
 import { AddRoleComponent } from './designer-roles/add-role/add-role.component';
 import { ItemRoleComponent } from './designer-roles/item-role/item-role.component';
+import { ListDesignersComponent } from './game-designers/list-designers/list-designers.component';
+import { AddDesignerComponent } from './game-designers/add-designer/add-designer.component';
+import { ItemDesignerComponent } from './game-designers/item-designer/item-designer.component';
 
 const routes: Routes = [
   { path: '', component: MyGamesComponent },
@@ -17,6 +20,10 @@ const routes: Routes = [
   { path: 'addDesignerRoles', component: AddRoleComponent },
   { path: 'editDesignerRoles/:id', component: AddRoleComponent },
   { path: 'itemDesignerRoles/:id', component: ItemRoleComponent },
+  { path: 'itemGameDesigner/:id', component: ItemDesignerComponent },
+  { path: 'gameDesigners', component: ListDesignersComponent },
+  { path: 'addDesigner', component: AddDesignerComponent },
+  { path: 'editDesigner/:id', component: AddDesignerComponent },
   { path: '**',   redirectTo: '', pathMatch: 'full' }
 ];
 

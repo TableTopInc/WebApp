@@ -8,9 +8,11 @@ import { MyGamesModule } from './my-games/my-games.module';
 import { SharedModule } from './shared/shared.module';
 import { GameService } from './shared/services/game-service';
 import { RolesService } from './shared/services/roles-service';
+import { DesignersService } from './shared/services/designers-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
-import { DesignerRolesModule} from './designer-roles/designer-roles.module';
+import { DesignerRolesModule } from './designer-roles/designer-roles.module';
+import { GameDesignersModule } from './game-designers/game-designers.module';
 
 
 
@@ -29,9 +31,14 @@ import { DesignerRolesModule} from './designer-roles/designer-roles.module';
     FormsModule, 
     ReactiveFormsModule,
     CoreModule,
-    DesignerRolesModule
+    DesignerRolesModule,
+    GameDesignersModule
   ],
-  providers: [GameService,  RolesService],
+  providers: [
+    GameService,  
+    RolesService, 
+    DesignersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

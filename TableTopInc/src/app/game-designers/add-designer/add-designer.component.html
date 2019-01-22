@@ -1,0 +1,71 @@
+<div class="conteiner" *ngIf="designer">
+  <h1>Edit designer.</h1>
+  <form #form='ngForm' (ngSubmit)='form.reset()'>
+      <div class="form-group">
+        <label for="t">FirstName:</label>
+        <input type="text" class="form-control" id="t" name = 'FirstName' [(ngModel)]="designer.firstName" 
+        required #FirstName="ngModel">
+        <div [hidden]="FirstName.valid || FirstName.untouched" class="alert">
+            This field is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="l">LastName:</label>
+        <input type="text" class="form-control" id="l" name = 'LastName' [(ngModel)]="designer.lastName" 
+        required #LastName="ngModel">
+        <div [hidden]="LastName.valid || LastName.untouched" class="alert">
+            This field is required!
+        </div>
+      </div>
+      <div>
+        <label for="url">PhotoUrl:</label>
+        <input type="text" class="form-control" id="url" name = 'PhotoUrl' [(ngModel)]="designer.photoUrl"
+        #PhotoUrl="ngModel"
+        pattern='(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?'>
+        <div [hidden]="PhotoUrl.valid" class="alert">
+            Url is not valid!
+        </div>
+      </div>
+      <div>
+        <label for="comment">Biography:</label>
+        <textarea class="form-control" rows="5" id="comment" name = 'Bio' [(ngModel)]="designer.bio"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary add" [disabled]="form.form.invalid" 
+      routerLink="/itemGameDesigner/{{designer.id}}">SAVE CHANGES</button>
+    </form>
+</div>
+
+
+<div class="conteiner" *ngIf="!designer">
+  <h1>Add new designer.</h1>
+  <form #form='ngForm' (ngSubmit)='form.reset()'>
+      <div class="form-group">
+        <label for="t">FirstName:</label>
+        <input type="text" class="form-control" id="t" name = 'firstName' [(ngModel)]="FirstName" required  #firstName="ngModel">
+        <div [hidden]="firstName.valid" class="alert">
+            This field is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="f">FirstName:</label>
+        <input type="text" class="form-control" id="f" name = 'lastName' [(ngModel)]="LastName" required  #lastName="ngModel">
+        <div [hidden]="lastName.valid" class="alert">
+            This field is required!
+        </div>
+      </div>
+      <div>
+        <label for="biography">Biography:</label>
+        <textarea class="form-control" rows="5" id="biography" name = 'bio' [(ngModel)]="Bio"></textarea>
+      </div>
+      <div>
+        <label for="url">PhotoUrl:</label>
+        <input type="text" class="form-control" id="url" name = 'photoUrl' [(ngModel)]="PhotoUrl" #photoUrl="ngModel"
+        pattern='(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?'>
+        <div [hidden]="photoUrl.valid" class="alert">
+            Url is not valid!
+        </div>
+      </div>
+      <button type="submit" (click)="onSubmit()" class="btn btn-primary add" [routerLink]="['/gameDesigners']"
+      [disabled]="form.form.invalid">ADD  DESIGNER</button>
+    </form>
+</div>

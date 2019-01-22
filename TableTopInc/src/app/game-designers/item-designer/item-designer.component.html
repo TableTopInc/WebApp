@@ -1,0 +1,25 @@
+<div class="container">
+  <h3>Details of Designer</h3>
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <th>FirstName</th>
+      <td>{{designer?.firstName}}</td>
+    </tr>
+    <tr>
+      <th>LastName</th>
+      <td>{{designer?.lastName}}</td>
+    </tr>
+    <tr>
+      <th>Biography</th>
+      <td>{{designer?.bio}}</td>
+    </tr>
+    <tr>
+      <th>PhotoUrl</th>
+      <td><img src="{{designer.photoUrl}}" alt="No photo"></td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success add" [routerLink]="['/gameDesigners']">TO LIST DESIGNER</button>
+<button type="button" class="btn btn-primary" routerLink="/editDesigner/{{designer.id}}">EDIT DESIGNER</button>
+</div> 
