@@ -1,37 +1,47 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Roles} from '../models/roles';
-import {RolesData} from '../roles-data';
 import { Observable, of } from 'rxjs';
+
 
 
 @Injectable({ providedIn: 'root'})
 export class RolesService{
-roles:Roles[]=RolesData;
+roles:Roles[]=[];
 role:Roles;
 
-    constructor(private http: HttpClient){}
+private rolesUrl = 'https://tabletop-api-dev.azurewebsites.net/api/GameDesignerRoles';
 
-    getRoles():Observable<Roles[]>  {
-      console.log(RolesData);
-      return of(RolesData);  
+    constructor(private http: HttpClient){
+      this.getRoles();
     }
 
-    getRole(id: string): Observable<Roles> {   
-        return of(RolesData.find(role => role.id === id));
-       }
+    public headers = new HttpHeaders()
+     .append('accept', 'application/json');
 
-    deleteGame(roles: Roles) {
-        const index = this.roles.indexOf(roles);
-         if (index > -1) {
-           this.roles.splice(index, 1);
-         }
+     getRoles():Observable<Roles[]>  {
+      return this.http.get<Roles[]>('https://tabletop-api-dev.azurewebsites.net/api/GameDesignerRoles',{headers: this.headers}) 
     }
 
-    addRole(id:string, title:string) {
-        const role = new Roles(id, title, );
+    //  getRole(id: string): Observable<Roles> {   
+    //      return of(RolesData.find(role => role.id === id));
+    //     }
+
+    deleteRole (role: Roles | string): Observable<Roles> {
+      const id = typeof role === 'string' ? role : role.Id;
+      const url = `${this.rolesUrl}/${id}`;
+   
+      return this.http.delete<Roles>(url, {headers: this.headers});
+    }
+
+    addRole(Id:string, Title:string) {
+        const role = new Roles(Id, Title, );
         this.roles.push(role);
-      }
+        return this.http.post<any>
+      ('https://tabletop-api-dev.azurewebsites.net/api/GameDesignerRoles',
+        {'Id': Id, 'Title': Title}, {headers: this.headers})
+        .subscribe(res => console.log(res) );
+    }
     
     
 }

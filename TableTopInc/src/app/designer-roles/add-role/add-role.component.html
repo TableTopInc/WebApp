@@ -3,7 +3,7 @@
     <form #form='ngForm' (ngSubmit)='form.reset()'>
         <div class="form-group">
           <label for="t">Title:</label>
-          <input type="text" class="form-control" id="t" name = 'title' [(ngModel)]="role.title" 
+          <input type="text" class="form-control" id="t" name = 'title' [(ngModel)]="role.Title" 
           required #title="ngModel">
           <div [hidden]="title.valid || title.untouched" class="alert">
               This field is required!
@@ -26,6 +26,6 @@
           </div>
         </div>
         <button type="submit" (click)="onSubmit()" class="btn btn-primary add" 
-        [disabled]="form.form.invalid">ADD  ROLE</button>
+        [disabled]="form.form.invalid" [routerLink]="['/designerRoles']">ADD  ROLE</button>
       </form>
   </div>

@@ -5,42 +5,42 @@
       <tbody>
         <tr>
           <th>Title</th>
-          <td>{{itemGame?.title}}</td>
+          <td>{{itemGame?.Title}}</td>
         </tr>
         <tr>
           <th>Description</th>
-          <td>{{itemGame?.description}}</td>
+          <td>{{itemGame?.Description}}</td>
         </tr>
         <tr>
           <th>CoverUrl</th>
-          <td><img src="{{itemGame.coverUrl}}" alt="No photo"></td>
+          <td><img src="{{itemGame.CoverUrl}}" alt="No photo"></td>
         </tr>
         <tr>
           <th>PlayersFrom</th>
-          <td>{{itemGame?.playersFrom}}</td>
+          <td>{{itemGame?.PlayersFrom}}</td>
         </tr>
         <tr>
           <th>PlayersTo</th>
-          <td>{{itemGame?.playersTo}}</td>
+          <td>{{itemGame?.PlayersTo}}</td>
         </tr>
         <tr>
           <th>SessionMinutesFrom</th>
-          <td>{{itemGame?.sessionMinutesFrom}}</td>
+          <td>{{itemGame?.SessionMinutesFrom}}</td>
         </tr>
         <tr>
           <th>SessionMinutesTo</th>
-          <td>{{itemGame?.sessionMinutesTo}}</td>
+          <td>{{itemGame?.SessionMinutesTo}}</td>
         </tr>
         <tr>
           <th>AgeFrom</th>
-          <td>{{itemGame?.ageFrom}}</td>
+          <td>{{itemGame?.AgeFrom}}</td>
         </tr>
         <tr>
           <th>YearReleased</th>
-          <td>{{itemGame?.yearReleased}}</td>
+          <td>{{itemGame?.YearReleased}}</td>
         </tr>
       </tbody>
     </table>
     <button type="button" class="btn btn-success add" [routerLink]="['/']">TO LIST GAME</button>
-    <button type="button" class="btn btn-primary" routerLink="/edit/{{itemGame.id}}">EDIT GAME</button>
+    <button type="button" class="btn btn-primary" (click)="save()" routerLink="/edit/{{itemGame.Id}}">EDIT GAME</button>
 </div> 

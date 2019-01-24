@@ -16,12 +16,12 @@ export class ItemRoleComponent implements OnInit {
   constructor(private rolesService:RolesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getRole();
+    // this.getRole();
   }
 
-  getRole(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.rolesService.getRole(id)
-    .subscribe(role => this.role = role);
-  }
+  // getRole(): void {
+  //   const id = this.route.snapshot.paramMap.get('id');
+  //   this.rolesService.getRole(id)
+  //   .subscribe(role => this.role = role);
+  // }
 }

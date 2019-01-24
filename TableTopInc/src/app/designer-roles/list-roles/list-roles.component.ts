@@ -26,6 +26,6 @@ export class ListRolesComponent implements OnInit {
   }
 
   onDelete(roles: Roles) {
-    this.rolesService.deleteGame(roles);
+    this.rolesService.deleteRole(roles);
   }
 }

@@ -27,5 +27,8 @@ export class ItemGameComponent implements OnInit {
     this.gameService.getGame(id)
     .subscribe(itemGame => this.itemGame = itemGame);
   }
+  save(): void {
+    this.gameService.updateGame(this.itemGame);
+  }
 
 }

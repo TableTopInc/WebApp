@@ -1,16 +1,16 @@
 export class Game{
    
      constructor(
-         public id: string,
-         public title: string,
-         public description: string,
-         public coverUrl: string,
-         public playersFrom: number,
-         public playersTo: number,
-         public sessionMinutesFrom: number,
-         public sessionMinutesTo: number,
-         public ageFrom: number,
-         public yearReleased: number,
+         public Id: string,
+         public Title: string,
+         public Description: string,
+         public CoverUrl: string,
+         public PlayersFrom: number,
+         public PlayersTo: number,
+         public SessionMinutesFrom: number,
+         public SessionMinutesTo: number,
+         public AgeFrom: number,
+         public YearReleased: number,
          ) 
         
          { }

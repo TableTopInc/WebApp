@@ -19,6 +19,7 @@ export class ListGamesComponent implements OnInit {
   
   ngOnInit() {
     this.getGames();
+    
   }
 
   onDelete(game: Game): void {
