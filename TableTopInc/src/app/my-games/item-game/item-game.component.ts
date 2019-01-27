@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Game } from '../../shared/models/game';
 import { GameService } from '../../shared/services/game-service';
 import { ActivatedRoute} from '@angular/router';
@@ -12,10 +12,11 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class ItemGameComponent implements OnInit {
   
-  itemGame:Game;
+  
+  @Input() itemGame:Game;
   
   constructor(private gameService:GameService, private route: ActivatedRoute) {
-    
+   
    }
   
   ngOnInit() {
@@ -27,8 +28,5 @@ export class ItemGameComponent implements OnInit {
     this.gameService.getGame(id)
     .subscribe(itemGame => this.itemGame = itemGame);
   }
-  save(): void {
-    this.gameService.updateGame(this.itemGame);
-  }
-
+  
 }

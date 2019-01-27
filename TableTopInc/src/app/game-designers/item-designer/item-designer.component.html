@@ -16,10 +16,10 @@
     </tr>
     <tr>
       <th>PhotoUrl</th>
-      <td><img src="{{designer.photoUrl}}" alt="No photo"></td>
+      <td><img src="{{designer?.photoUrl}}" alt="No photo"></td>
     </tr>
   </tbody>
 </table>
 <button type="button" class="btn btn-success add" [routerLink]="['/gameDesigners']">TO LIST DESIGNER</button>
-<button type="button" class="btn btn-primary" routerLink="/editDesigner/{{designer.id}}">EDIT DESIGNER</button>
+<button type="button" class="btn btn-primary" routerLink="/editDesigner/{{designer?.id}}">EDIT DESIGNER</button>
 </div> 

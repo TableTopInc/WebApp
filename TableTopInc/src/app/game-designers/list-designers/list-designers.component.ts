@@ -23,7 +23,8 @@ export class ListDesignersComponent implements OnInit {
     .subscribe(designers => this.designers = designers);
  }
 
- onDelete(designers: Designer) {
-  this.designersService.deleteDesigners(designers);
-}
+  onDelete(designer: Designer): void {
+    this.designers = this.designers.filter(h => h !== designer);
+    this.designersService.deleteDesigner(designer).subscribe();
+  }
 }

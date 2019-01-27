@@ -3,7 +3,7 @@
   <form #form='ngForm' (ngSubmit)='form.reset()'>
       <div class="form-group">
         <label for="t">Title:</label>
-        <input type="text" class="form-control" id="t" name = 'title' [(ngModel)]="itemGame.Title" 
+        <input type="text" class="form-control" id="t" name = 'title' [(ngModel)]="itemGame.title" 
         required #title="ngModel">
         <div [hidden]="title.valid || title.untouched" class="alert">
             This field is required!
@@ -12,11 +12,11 @@
       <div>
         <label for="comment">Description:</label>
         <textarea class="form-control" rows="5" id="comment" name = 'description' 
-        [(ngModel)]="itemGame.Description"></textarea>
+        [(ngModel)]="itemGame.description"></textarea>
       </div>
       <div>
         <label for="url">CoverUrl:</label>
-        <input type="text" class="form-control" id="url" name = 'coverUrl' [(ngModel)]="itemGame.CoverUrl"
+        <input type="text" class="form-control" id="url" name = 'coverUrl' [(ngModel)]="itemGame.coverUrl"
         #coverUrl="ngModel"
         pattern='(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?'>
         <div [hidden]="coverUrl.valid" class="alert">
@@ -25,39 +25,39 @@
       </div>
       <div>
         <label for="pf">PlayersFrom:</label>
-        <input type="number" class="form-control" id="pf" name = 'playersFrom' [(ngModel)]="itemGame.PlayersFrom" 
+        <input type="number" class="form-control" id="pf" name = 'playersFrom' [(ngModel)]="itemGame.playersFrom" 
         #playersFrom="ngModel">
       </div>
       <div>
         <label for="pt">PlayersTo:</label>
-        <input type="number" class="form-control" id="pf" name = 'playersTo' [(ngModel)]="itemGame.PlayersTo" 
+        <input type="number" class="form-control" id="pf" name = 'playersTo' [(ngModel)]="itemGame.playersTo" 
         #playersTo="ngModel">
       </div>
       <div>
         <label for="sf">SessionMinutesFrom:</label>
-        <input type="number" class="form-control" id="pf" name = 'sessionMinutesFrom' [(ngModel)]="itemGame.SessionMinutesFrom" 
+        <input type="number" class="form-control" id="pf" name = 'sessionMinutesFrom' [(ngModel)]="itemGame.sessionMinutesFrom" 
         #sessionMinutesFrom="ngModel">
       </div>
       <div>
         <label for="st">SessionMinutesTo:</label>
-        <input type="number" class="form-control" id="pf" name = 'sessionMinutesTo' [(ngModel)]="itemGame.SessionMinutesTo" 
+        <input type="number" class="form-control" id="pf" name = 'sessionMinutesTo' [(ngModel)]="itemGame.sessionMinutesTo" 
         #sessionMinutesTo="ngModel">
       </div>
       <div>
         <label for="af">AgeFrom:</label>
-        <input type="number" class="form-control" id="pf" name = 'ageFrom' [(ngModel)]="itemGame.AgeFrom" 
+        <input type="number" class="form-control" id="pf" name = 'ageFrom' [(ngModel)]="itemGame.ageFrom" 
         #ageFrom="ngModel">
       </div>
       <div>
         <label for="yr">YearReleased:</label>
-        <input type="text" class="form-control" id="yr" name = 'yearReleased' [(ngModel)]="itemGame.YearReleased" 
+        <input type="text" class="form-control" id="yr" name = 'yearReleased' [(ngModel)]="itemGame.yearReleased" 
         #yearReleased="ngModel" pattern='[0-9]{4}'>
         <div [hidden]="yearReleased.valid" class="alert">
             Insert the year!
         </div>
       </div>
       <button type="button" class="btn btn-primary add" [disabled]="form.form.invalid" 
-      routerLink="/item/{{itemGame.Id}}">SAVE CHANGES</button>
+      (click)="save()">SAVE CHANGES</button>
     </form>
 </div>
 
@@ -117,7 +117,7 @@
             Insert the year!
         </div>
       </div>
-      <button type="submit" (click)="onSubmit()" class="btn btn-primary add" [routerLink]="['/']"
+      <button type="submit" (click)="onSubmit()" class="btn btn-primary add" 
       [disabled]="form.form.invalid">ADD  GAME</button>
     </form>
 </div>

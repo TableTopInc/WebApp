@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Designer } from '../../shared/models/designer';
 import { DesignersService } from '../../shared/services/designers-service';
 import { ActivatedRoute} from '@angular/router';
@@ -11,7 +11,7 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class ItemDesignerComponent implements OnInit {
 
-  designer:Designer;
+  @Input() designer:Designer;
 
   constructor(private designersService:DesignersService, private route: ActivatedRoute) { }
 

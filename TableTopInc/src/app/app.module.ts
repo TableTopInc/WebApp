@@ -20,7 +20,6 @@ import { GameDesignersModule } from './game-designers/game-designers.module';
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,

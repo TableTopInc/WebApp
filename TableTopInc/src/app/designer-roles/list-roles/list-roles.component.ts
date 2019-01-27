@@ -20,12 +20,14 @@ export class ListRolesComponent implements OnInit {
     this.getRoles();
   }
 
-  getRoles():void{
-   this.rolesService.getRoles()
-     .subscribe(roles => this.roles = roles);
+  onDelete(role: Roles): void {
+    this.roles = this.roles.filter(h => h !== role);
+    this.rolesService.deleteRole(role).subscribe();
   }
 
-  onDelete(roles: Roles) {
-    this.rolesService.deleteRole(roles);
-  }
+  getRoles(): void {
+    this.rolesService.getRoles()
+    .subscribe(roles => this.roles = roles);
+ }
+ 
 }

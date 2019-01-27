@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Roles } from '../../shared/models/roles';
 import { RolesService } from '../../shared/services/roles-service';
 import { ActivatedRoute} from '@angular/router';
@@ -11,17 +11,18 @@ import { ActivatedRoute} from '@angular/router';
   providers: [RolesService]
 })
 export class ItemRoleComponent implements OnInit {
-  role:Roles;
+  
+  @Input() role:Roles;
 
   constructor(private rolesService:RolesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.getRole();
+    this.getRole();
   }
 
-  // getRole(): void {
-  //   const id = this.route.snapshot.paramMap.get('id');
-  //   this.rolesService.getRole(id)
-  //   .subscribe(role => this.role = role);
-  // }
+  getRole(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.rolesService.getRole(id)
+    .subscribe(role => this.role = role);
+  }
 }

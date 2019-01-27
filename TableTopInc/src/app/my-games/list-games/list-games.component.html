@@ -15,14 +15,14 @@
   </thead>
   <tbody>
     <tr *ngFor = 'let game of game'>
-      <td>{{game.Title}}</td>
-      <td>{{game.PlayersFrom}}</td>
-      <td>{{game.PlayersTo}}</td>
-      <td>{{game.SessionMinutesFrom}}</td>
-      <td>{{game.SessionMinutesTo}}</td>
-      <td>{{game.AgeFrom}}</td>
-      <td>{{game.YearReleased}}</td>
-      <td><input type="button" value="Details"  routerLink="/item/{{game.Id}}" class="btn btn-success"/></td>
+      <td>{{game.title}}</td>
+      <td>{{game.playersFrom}}</td>
+      <td>{{game.playersTo}}</td>
+      <td>{{game.sessionMinutesFrom}}</td>
+      <td>{{game.sessionMinutesTo}}</td>
+      <td>{{game.ageFrom}}</td>
+      <td>{{game.yearReleased}}</td>
+      <td><input type="button" value="Details"  routerLink="/item/{{game.id}}" class="btn btn-success"/></td>
       <td><input type="button" value="Delete" (click)="onDelete(game)" class="btn btn-danger" /></td>
     </tr>
   </tbody>

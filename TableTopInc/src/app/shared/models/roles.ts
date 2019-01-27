@@ -1,8 +1,8 @@
 export class Roles{
    
     constructor(
-        public Id: string,
-        public Title: string,
+        public id: string,
+        public title: string,
         ) 
        
         { }
