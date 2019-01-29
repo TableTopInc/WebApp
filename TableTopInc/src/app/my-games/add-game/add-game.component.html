@@ -117,6 +117,8 @@
             Insert the year!
         </div>
       </div>
+      <button type="submit" (click)="goBack()" class="btn btn-success" 
+      >BACK</button>
       <button type="submit" (click)="onSubmit()" class="btn btn-primary add" 
       [disabled]="form.form.invalid">ADD  GAME</button>
     </form>
