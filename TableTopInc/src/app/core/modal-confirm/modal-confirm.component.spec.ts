@@ -1,22 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListDesignersComponent } from './list-designers.component';
+import { ModalConfirmComponent } from './modal-confirm.component';
 
-
-
-describe('ListDesignersComponent', () => {
-  let component: ListDesignersComponent;
-  let fixture: ComponentFixture<ListDesignersComponent>;
+describe('ModalConfirmComponent', () => {
+  let component: ModalConfirmComponent;
+  let fixture: ComponentFixture<ModalConfirmComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListDesignersComponent ],
+      declarations: [ ModalConfirmComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListDesignersComponent);
+    fixture = TestBed.createComponent(ModalConfirmComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -24,5 +22,4 @@ describe('ListDesignersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

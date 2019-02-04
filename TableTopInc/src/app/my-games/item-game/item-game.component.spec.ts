@@ -12,10 +12,9 @@ import { Game } from '../../shared/models/game';
 describe('ItemGameComponent', () => {
   let component: ItemGameComponent;
   let fixture: ComponentFixture<ItemGameComponent>;
-  let gameService:GameService;
-  let spy:jasmine.Spy;
-  let game:Game;
- 
+  let gameService: GameService;
+  let spy: jasmine.Spy;
+  let game: Game;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

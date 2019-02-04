@@ -6,7 +6,6 @@ import { ItemDesignerComponent } from './item-designer.component';
 describe('ItemDesignerComponent', () => {
   let component: ItemDesignerComponent;
   let fixture: ComponentFixture<ItemDesignerComponent>;
-  
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

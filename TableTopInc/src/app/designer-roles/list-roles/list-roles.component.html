@@ -6,11 +6,11 @@
           </tr>
         </thead>
     <tbody>
-      <tr *ngFor = 'let roles of roles'>
+      <tr *ngFor = 'let role of roles'>
         <th>Title</th>
-        <td>{{roles.title}}</td>
-        <td><input type="button" value="Details" routerLink="/itemDesignerRoles/{{roles.id}}"  class="btn btn-success"/></td>
-        <td><input type="button" value="Delete" (click)="onDelete(roles)" class="btn btn-danger" /></td>
+        <td>{{role.title}}</td>
+        <td><input type="button" value="Details" routerLink="/itemDesignerRoles/{{role.id}}"  class="btn btn-success"/></td>
+        <td><input type="button" value="Delete" (click)="openConfirmationDialog(role)" class="btn btn-danger" /></td>
       </tr>
     </tbody>
   </table>

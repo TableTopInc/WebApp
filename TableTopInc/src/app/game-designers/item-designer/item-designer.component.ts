@@ -2,27 +2,28 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Designer } from '../../shared/models/designer';
 import { DesignersService } from '../../shared/services/designers-service';
 import { ActivatedRoute} from '@angular/router';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-item-designer',
   templateUrl: './item-designer.component.html',
   styleUrls: ['./item-designer.component.scss'],
-  providers: [DesignersService]
 })
 export class ItemDesignerComponent implements OnInit {
 
-  @Input() designer:Designer;
+  @Input() designer: Designer;
 
-  constructor(private designersService:DesignersService, private route: ActivatedRoute) { }
+  constructor(private designersService: DesignersService, private route: ActivatedRoute,
+    private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
     this.getDesigner();
+    this.spinnerService.show();
   }
 
   getDesigner(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.designersService.getDesigner(id)
-    .subscribe(designer => this.designer = designer);
+    .subscribe(designer => {this.designer = designer; this.spinnerService.hide(); });
   }
-
 }

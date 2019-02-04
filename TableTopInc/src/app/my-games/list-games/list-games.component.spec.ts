@@ -10,11 +10,11 @@ import { Game } from '../../shared/models/game';
 describe('ListGamesComponent', () => {
   let component: ListGamesComponent;
   let fixture: ComponentFixture<ListGamesComponent>;
-  let gameService:GameService;
-  let spy:jasmine.Spy;
-  let spyDelete:jasmine.Spy;
+  let gameService: GameService;
+  let spy: jasmine.Spy;
+  let spyDelete: jasmine.Spy;
   let mockGame;
-  let game:Game;
+  let game: Game;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -63,9 +63,6 @@ describe('ListGamesComponent', () => {
 
   it('should set games', () => {
     component.getGames();
-    expect(component.game).toEqual(mockGame);
+    expect(component.games).toEqual(mockGame);
   });
-
-
-  
 });

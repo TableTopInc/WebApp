@@ -1,6 +1,6 @@
-export class Game{
-   
-     constructor(
+export class Game {
+
+    constructor(
          public id: string,
          public title: string,
          public description: string,
@@ -11,7 +11,5 @@ export class Game{
          public sessionMinutesTo: number,
          public ageFrom: number,
          public yearReleased: number,
-         ) 
-        
-         { }
+    ) {}
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { RolesService } from '../../shared/services/roles-service';
 import { Roles } from '../../shared/models/roles';
 import { ActivatedRoute} from '@angular/router';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-add-role',
@@ -12,12 +12,11 @@ import { Location } from '@angular/common';
 })
 export class AddRoleComponent implements OnInit {
 
-  @Input() role:Roles;
+  role = {} as Roles;
+  change: boolean;
 
-  Id = '';
-  Title = '';
 
-  constructor(private rolesService:RolesService, private route: ActivatedRoute, private location: Location) { }
+  constructor(private rolesService: RolesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getRole();
@@ -25,25 +24,27 @@ export class AddRoleComponent implements OnInit {
 
   getRole(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.rolesService.getRole(id)
-    .subscribe(role => this.role = role);
+    if (id != undefined) {
+      this.rolesService.getRole(id)
+      .subscribe(role => this.role = role);
+      this.change = true;
+    }
+    else {
+      this.role = new Roles(undefined, '');
+      this.change = false;
+    }
   }
 
-  onSubmit(){
-    this.rolesService.addRole(this.Id, this.Title,)
-    .subscribe(() => this.goBack());  
+  onSubmit() {
+    if (this.role.id === undefined) {
+      this.rolesService.addRole(this.role);
+    }
+    else {
+      this.rolesService.updateRole(this.role.id, this.role);
+    }
   }
 
-  editGame(role: Roles) {
-    this.role = new Roles(role.id, role.title);
+  goBack() {
+    this.rolesService.goBack();
   }
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  save() {
-    this.rolesService.updateRole(this.role.id, this.role).subscribe(() => this.goBack());
-  }
-
 }

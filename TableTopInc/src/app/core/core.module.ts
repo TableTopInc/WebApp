@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ButtonComponent } from './button/button.component';
-import {NavComponent } from './nav/nav.component';
-import {RouterModule} from '@angular/router';
+import { NavComponent } from './nav/nav.component';
+import { RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,8 +14,9 @@ import {RouterModule} from '@angular/router';
     CommonModule,
     RouterModule
   ],
-  exports:[
+  exports: [
     NavComponent,
   ],
 })
+
 export class CoreModule { }

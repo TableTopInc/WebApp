@@ -13,7 +13,7 @@ import { ItemRoleComponent } from './item-role/item-role.component';
     RouterModule,
     FormsModule
   ],
-  exports:[
+  exports: [
     ListRolesComponent,
     AddRoleComponent,
     ItemRoleComponent

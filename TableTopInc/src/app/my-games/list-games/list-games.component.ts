@@ -1,35 +1,49 @@
 import { Component, OnInit} from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { Game } from '../../shared/models/game';
 import { GameService } from '../../shared/services/game-service';
+import { ModalConfirmComponent } from '../../core/modal-confirm/modal-confirm.component';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 
 @Component({
   selector: 'app-list-games',
   templateUrl: './list-games.component.html',
   styleUrls: ['./list-games.component.scss'],
-  providers: [GameService]
 })
 export class ListGamesComponent implements OnInit {
-  game:Game[];
+  games: Game[];
+  dialogRef: MatDialogRef<ModalConfirmComponent>;
 
-  constructor(private gameService:GameService) {
-    
-   }
-  
+  constructor(public gameService: GameService, public dialog: MatDialog,
+    private spinnerService: Ng4LoadingSpinnerService) {
+  }
+
   ngOnInit() {
     this.getGames();
-    
+    this.spinnerService.show();
   }
 
   onDelete(game: Game): void {
-    this.game = this.game.filter(h => h !== game);
+    this.games = this.games.filter(h => h !== game);
     this.gameService.deleteGame(game).subscribe();
   }
-  
+
   getGames(): void {
-     this.gameService.getGames()
-     .subscribe(game => this.game = game);
+    this.gameService.getGames()
+    .subscribe(games => {this.games = games; this.spinnerService.hide(); });
   }
-   
+
+  openConfirmationDialog(game: Game) {
+    this.dialogRef = this.dialog.open(ModalConfirmComponent, {disableClose: false});
+    this.dialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete?';
+    this.dialogRef.componentInstance.confirmTitle =  game.title;
+    this.dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.onDelete(game);
+      }
+      this.dialogRef = null;
+    });
+  }
 }

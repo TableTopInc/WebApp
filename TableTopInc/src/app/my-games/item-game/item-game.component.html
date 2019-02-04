@@ -8,37 +8,29 @@
           <td>{{itemGame?.title}}</td>
         </tr>
         <tr>
-          <th>Description</th>
-          <td>{{itemGame?.description}}</td>
+          <th>Year of release</th>
+          <td>{{itemGame?.yearReleased}}</td>
         </tr>
         <tr>
-          <th>CoverUrl</th>
+          <th>Cover</th>
           <td><img src="{{itemGame?.coverUrl}}" alt="No photo"></td>
         </tr>
         <tr>
-          <th>PlayersFrom</th>
-          <td>{{itemGame?.playersFrom}}</td>
+          <th>Players from-to</th>
+          <td>{{itemGame?.playersFrom}} - {{itemGame?.playersTo}}</td>
         </tr>
         <tr>
-          <th>PlayersTo</th>
-          <td>{{itemGame?.playersTo}}</td>
+          <th>Session from-to</th>
+          <td>{{itemGame?.sessionMinutesFrom}} - {{itemGame?.sessionMinutesTo}}</td>
         </tr>
         <tr>
-          <th>SessionMinutesFrom</th>
-          <td>{{itemGame?.sessionMinutesFrom}}</td>
-        </tr>
-        <tr>
-          <th>SessionMinutesTo</th>
-          <td>{{itemGame?.sessionMinutesTo}}</td>
-        </tr>
-        <tr>
-          <th>AgeFrom</th>
+          <th>Age</th>
           <td>{{itemGame?.ageFrom}}</td>
         </tr>
         <tr>
-          <th>YearReleased</th>
-          <td>{{itemGame?.yearReleased}}</td>
-        </tr>
+          <th>Description</th>
+          <td>{{itemGame?.description}}</td>
+        </tr> 
       </tbody>
     </table>
     <button type="button" class="btn btn-success add" [routerLink]="['/']">TO LIST GAME</button>

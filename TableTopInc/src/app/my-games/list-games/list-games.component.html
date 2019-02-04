@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = 'let game of game'>
+    <tr *ngFor = 'let game of games'>
       <td>{{game.title}}</td>
       <td>{{game.playersFrom}}</td>
       <td>{{game.playersTo}}</td>
@@ -23,12 +23,14 @@
       <td>{{game.ageFrom}}</td>
       <td>{{game.yearReleased}}</td>
       <td><input type="button" value="Details"  routerLink="/item/{{game.id}}" class="btn btn-success"/></td>
-      <td><input type="button" value="Delete" (click)="onDelete(game)" class="btn btn-danger" /></td>
+      <td><input type="button" value="Delete" (click)="openConfirmationDialog(game)" 
+      class="btn btn-danger" /></td>
     </tr>
   </tbody>
 </table>
 <button type="button" class="btn btn-primary add" [routerLink]="['/add']">ADD  GAME</button>
 </div>
+
 
  
   

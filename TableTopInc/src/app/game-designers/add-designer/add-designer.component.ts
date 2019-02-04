@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DesignersService } from '../../shared/services/designers-service';
 import { Designer } from '../../shared/models/designer';
 import { ActivatedRoute} from '@angular/router';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-add-designer',
@@ -12,15 +12,10 @@ import { Location } from '@angular/common';
 })
 export class AddDesignerComponent implements OnInit {
 
-  @Input() designer:Designer;
+  designer = {} as Designer;
+  change: boolean;
 
-  Id ='';
-  FirstName = '';
-  LastName = '';
-  Bio = '';
-  PhotoUrl = '';
-
-  constructor(private designersService:DesignersService, private route: ActivatedRoute, private location: Location) { }
+  constructor(private designersService: DesignersService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getDesigner();
@@ -28,26 +23,27 @@ export class AddDesignerComponent implements OnInit {
 
   getDesigner(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.designersService.getDesigner(id)
-    .subscribe(designer => this.designer = designer);
-  }
-
-  onSubmit(){
-    this.designersService.addDesigner(this.Id, this.FirstName, this.LastName, this.Bio, this.PhotoUrl)
-    .subscribe(() => this.goBack());  
-  }
-
-  editDesigner(designer: Designer) {
-    this.designer = new Designer(designer.id, designer.firstName, designer.lastName, 
-    designer.bio, designer.photoUrl);
-  }
-
-  goBack(): void {
-    this.location.back();
+    if (id != undefined) {
+      this.designersService.getDesigner(id)
+      .subscribe(designer => this.designer = designer);
+      this.change = true;
     }
-
-  save() {
-    this.designersService.updateDesigner(this.designer.id, this.designer).subscribe(() => this.goBack());
+    else {
+      this.designer = new Designer(undefined, '', '', '', '');
+      this.change = false;
+    }
   }
 
+  onSubmit() {
+    if (this.designer.id === undefined) {
+      this.designersService.addDesigner(this.designer);
+    }
+    else {
+      this.designersService.updateDesigner(this.designer.id, this.designer);
+    }
+  }
+
+  goBack() {
+    this.designersService.goBack();
+  }
 }

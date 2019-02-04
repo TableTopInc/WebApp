@@ -1,22 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListDesignersComponent } from './list-designers.component';
+import { ProgressSpinnerComponent } from './progress-spinner.component';
 
-
-
-describe('ListDesignersComponent', () => {
-  let component: ListDesignersComponent;
-  let fixture: ComponentFixture<ListDesignersComponent>;
+describe('ProgressSpinnerComponent', () => {
+  let component: ProgressSpinnerComponent;
+  let fixture: ComponentFixture<ProgressSpinnerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListDesignersComponent ],
+      declarations: [ ProgressSpinnerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListDesignersComponent);
+    fixture = TestBed.createComponent(ProgressSpinnerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -24,5 +22,4 @@ describe('ListDesignersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

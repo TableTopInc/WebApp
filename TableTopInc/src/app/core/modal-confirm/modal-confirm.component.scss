@@ -1,0 +1,36 @@
+.container{
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 110;
+    background-color: black;
+    opacity: 0.5;
+    width: 100%;
+    max-width: 3000px;
+    height: 100%;
+}
+.desk{
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    z-index: 120;
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: solid 2px red;
+    border-radius: 10px;
+}
+.button{
+    text-align: center;
+    
+}
+button{
+    margin-left: 50px;
+}
+.title{
+    font-size: 20px;
+    font-weight: bolder;
+}

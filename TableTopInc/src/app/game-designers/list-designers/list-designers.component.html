@@ -10,12 +10,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor = 'let designers of designers'>
-        <td>{{designers.firstName}}</td>
-        <td>{{designers.lastName}}</td>
-        <td><img src="{{designers.photoUrl}}" alt="No photo"></td>
-        <td><input type="button" value="Details" routerLink="/itemGameDesigner/{{designers.id}}"  class="btn btn-success"/></td>
-        <td><input type="button" value="Delete" (click)="onDelete(designers)" class="btn btn-danger" /></td>
+      <tr *ngFor = 'let designer of designers'>
+        <td>{{designer.firstName}}</td>
+        <td>{{designer.lastName}}</td>
+        <td><img src="{{designer.photoUrl}}" alt="No photo"></td>
+        <td><input type="button" value="Details" routerLink="/itemGameDesigner/{{designer.id}}"  class="btn btn-success"/></td>
+        <td><input type="button" value="Delete" (click)="openConfirmationDialog(designer)" class="btn btn-danger" /></td>
       </tr>
     </tbody>
   </table>
