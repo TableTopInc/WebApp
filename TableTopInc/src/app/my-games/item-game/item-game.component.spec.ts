@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 import { ItemGameComponent } from './item-game.component';
 import { GameService } from '../../shared/services/game-service';
@@ -19,7 +20,8 @@ describe('ItemGameComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ItemGameComponent ],
-      providers: [ GameService ],
+      providers: [ GameService,
+        { provide: Ng4LoadingSpinnerService, useValue: new Ng4LoadingSpinnerService() }],
       schemas: [ NO_ERRORS_SCHEMA ],
       imports: [ HttpClientModule, RouterTestingModule ]
     })

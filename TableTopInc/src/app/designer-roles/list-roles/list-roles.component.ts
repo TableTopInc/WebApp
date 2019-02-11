@@ -11,6 +11,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   templateUrl: './list-roles.component.html',
   styleUrls: ['./list-roles.component.scss'],
 })
+
 export class ListRolesComponent implements OnInit {
 
   roles: Roles[];

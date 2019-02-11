@@ -1,10 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 import { ListGamesComponent } from './list-games.component';
 import { GameService } from '../../shared/services/game-service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Game } from '../../shared/models/game';
 
 describe('ListGamesComponent', () => {
@@ -14,14 +17,17 @@ describe('ListGamesComponent', () => {
   let spy: jasmine.Spy;
   let spyDelete: jasmine.Spy;
   let mockGame;
-  let game: Game;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ListGamesComponent ],
-      providers: [ GameService ],
+      providers: [ GameService,
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MatDialog, useValue: {} },
+        { provide: Ng4LoadingSpinnerService, useValue: new Ng4LoadingSpinnerService() }
+        ],
       schemas: [ NO_ERRORS_SCHEMA ],
-      imports: [ HttpClientModule]
+      imports: [ HttpClientModule, RouterTestingModule]
     })
     .compileComponents();
   }));
@@ -57,6 +63,7 @@ describe('ListGamesComponent', () => {
   });
 
   it('should call deleteGame', () => {
+    let game: Game;
     component.onDelete(game);
     expect(spyDelete.calls.any()).toBe(true);
   });

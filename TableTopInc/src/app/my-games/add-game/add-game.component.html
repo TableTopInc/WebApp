@@ -1,16 +1,14 @@
-
 <div class="conteiner">
-  <h1 *ngIf="change">Edit game.</h1>
-  <h1 *ngIf="!change">Add new game.</h1>
-  <form #form='ngForm' (ngSubmit)='form.reset()'>
+  <h1>{{pageTitle}}</h1>
+  <form  class = 'form' [formGroup] = 'gameForm' (ngSubmit)='onSubmit()' novalidate>
       <table class="table table-hover">
           <tbody>
             <tr>
               <th><label  for="t">Title:</label></th>
               <td>
-                <input  class="form-control" type="text"  id="t" name = 'title' [(ngModel)]="itemGame.title" 
-                required  #title="ngModel" placeholder="Title">
-                <div [hidden]="title.valid" class="alert">
+                <input  class="form-control title" type="text"  id="t" formControlName = "title"
+                placeholder="Title">
+                <div *ngIf="gameForm.controls['title'].invalid" class="alert">
                     This field is required!
                 </div>
               </td>
@@ -18,9 +16,9 @@
             <tr>
               <th><label for="yr">Year of release:</label></th>
               <td>
-                <input type="text" class="form-control" id="yr" name = 'yearReleased' [(ngModel)]="itemGame.yearReleased" #yearReleased="ngModel"
-                pattern='[0-9]{4}' placeholder="Year of release">
-                <div [hidden]="yearReleased.valid" class="alert">
+                <input type="text" class="form-control" id="yr" formControlName = 'yearReleased'
+                placeholder="Year of release">
+                <div *ngIf="gameForm.controls['yearReleased'].invalid" class="alert">
                   Insert the year!
                 </div>
               </td>
@@ -28,10 +26,9 @@
             <tr>
               <th><label for="url">Cover:</label></th>
               <td>
-                <input type="text" class="form-control" id="url" name = 'coverUrl' [(ngModel)]="itemGame.coverUrl" #coverUrl="ngModel"
-                pattern='(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?'
+                <input type="text" class="form-control" id="url" formControlName = 'coverUrl'
                 placeholder="CoverUrl">
-                <div [hidden]="coverUrl.valid" class="alert">
+                <div *ngIf="gameForm.controls['coverUrl'].invalid" class="alert">
                   Url is not valid!
                 </div>
               </td>
@@ -39,46 +36,41 @@
             <tr>
               <th><label for="pf">Players from-to:</label></th>
               <td>
-                <input type="number" class="form-control from" id="pf" name = 'playersFrom' [(ngModel)]="itemGame.playersFrom" 
-                #playersFrom="ngModel" placeholder="from">
+                <input type="number" class="form-control from" id="pf" formControlName = 'playersFrom'
+                placeholder="from">
                 <div class="dash"><span>-</span></div>
-                <input type="number" class="form-control to" id="pf" name = 'playersTo' [(ngModel)]="itemGame.playersTo" 
-                #playersTo="ngModel" placeholder="to">
+                <input type="number" class="form-control to" id="pf" formControlName = 'playersTo'
+                placeholder="to">
               </td>
             </tr>
             <tr>
               <th><label for="sf">Session from-to:</label></th>
               <td>
-                <input type="number" class="form-control from" id="pf" name = 'sessionMinutesFrom' [(ngModel)]="itemGame.sessionMinutesFrom" 
-                #sessionMinutesFrom="ngModel" placeholder="from">
+                <input type="number" class="form-control from" id="pf" formControlName = 'sessionMinutesFrom'
+                placeholder="from">
                 <div class="dash"><span>-</span></div>
-                <input type="number" class="form-control to" id="pf" name = 'sessionMinutesTo' [(ngModel)]="itemGame.sessionMinutesTo" 
-                #sessionMinutesTo="ngModel" placeholder="to">
+                <input type="number" class="form-control to" id="pf" formControlName = 'sessionMinutesTo'
+                placeholder="to">
               </td>
             </tr>
             <tr>
               <th><label for="af">Age:</label></th>
               <td>
-                <input type="number" class="form-control" id="pf" name = 'ageFrom' [(ngModel)]="itemGame.ageFrom" 
-                #ageFrom="ngModel" placeholder="Age">
+                <input type="number" class="form-control" id="pf" formControlName = 'ageFrom' placeholder="Age">
               </td>
             </tr>
             <tr>
               <th><label for="comment">Description:</label></th>
               <td>
-                <textarea class="form-control" rows="5" id="comment" name = 'Description' 
-                [(ngModel)]="itemGame.description" placeholder="Description"></textarea>
+                <textarea class="form-control" rows="5" id="comment" formControlName = 'description'
+                placeholder="Description"></textarea>
               </td>
             </tr> 
           </tbody>
         </table>
       <div class="button">
-        <button type="submit" (click)="goBack()" class="btn btn-success" 
-        >BACK</button>
-        <button *ngIf="!change"  type="submit" (click)="onSubmit()" class="btn btn-primary add" 
-        [disabled]="form.form.invalid">ADD  GAME</button>
-        <button *ngIf="change"  type="button" class="btn btn-primary add" [disabled]="form.form.invalid" 
-        (click)="onSubmit()">SAVE CHANGES</button>
+        <button type="button" (click)="goBack()" class="btn btn-success">BACK</button>
+        <button type="submit" class="btn btn-primary add" [disabled]="gameForm.invalid">{{buttonTitle}}</button>
       </div>
     </form>
 </div>

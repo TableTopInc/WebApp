@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
 import { ModalConfirmComponent } from './modal-confirm.component';
+import { MatDialogRef } from '@angular/material';
+
 
 describe('ModalConfirmComponent', () => {
   let component: ModalConfirmComponent;
@@ -8,7 +10,11 @@ describe('ModalConfirmComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalConfirmComponent ]
+      declarations: [ ModalConfirmComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} }
+    ]
     })
     .compileComponents();
   }));

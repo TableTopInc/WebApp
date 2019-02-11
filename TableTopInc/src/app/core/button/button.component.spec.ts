@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonComponent } from './button.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -11,6 +12,7 @@ describe('ButtonComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ButtonComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
+      imports: [ HttpClientModule ]
     })
     .compileComponents();
   }));

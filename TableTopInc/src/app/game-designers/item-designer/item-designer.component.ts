@@ -9,6 +9,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   templateUrl: './item-designer.component.html',
   styleUrls: ['./item-designer.component.scss'],
 })
+
 export class ItemDesignerComponent implements OnInit {
 
   @Input() designer: Designer;

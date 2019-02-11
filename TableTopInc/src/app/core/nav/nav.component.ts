@@ -10,7 +10,8 @@ export class NavComponent implements OnInit {
   buttons: Array<{}> = [
     {value: 'Games',  url: ''},
     {value: 'Game designer roles',  url: '/designerRoles'},
-    {value: 'Game designers', url: '/gameDesigners'}];
+    {value: 'Game designers', url: '/gameDesigners'},
+    {value: 'Tag', url: '/tag'}];
 
   constructor() { }
 

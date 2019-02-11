@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
-import { ProgressSpinnerComponent } from './progress-spinner.component';
+import { TagComponent } from './tag.component';
 
-describe('ProgressSpinnerComponent', () => {
-  let component: ProgressSpinnerComponent;
-  let fixture: ComponentFixture<ProgressSpinnerComponent>;
+describe('TagComponent', () => {
+  let component: TagComponent;
+  let fixture: ComponentFixture<TagComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgressSpinnerComponent ],
+      declarations: [ TagComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProgressSpinnerComponent);
+    fixture = TestBed.createComponent(TagComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

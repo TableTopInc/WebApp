@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListRolesComponent } from './list-roles/list-roles.component';
 import { AddRoleComponent } from './add-role/add-role.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemRoleComponent } from './item-role/item-role.component';
 
 @NgModule({
@@ -11,7 +11,8 @@ import { ItemRoleComponent } from './item-role/item-role.component';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ListRolesComponent,

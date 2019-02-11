@@ -1,17 +1,15 @@
 
 <div class="conteiner">
-  <h1 *ngIf="change">Edit designer.</h1>
-  <h1 *ngIf="!change">Add new designer.</h1>
-  <form #form='ngForm' (ngSubmit)='form.reset()'>
+  <h1>{{pageTitle}}</h1>
+  <form class = 'form' [formGroup] = 'designerForm' (ngSubmit)='onSubmit()' novalidate>
       <table class="table table-hover">
           <tbody>
             <tr>
               <th><label for="t">FirstName:</label></th>
               <td>
                 <input type="text" class="form-control" id="t" name = 'firstName' 
-                [(ngModel)]="designer.firstName" required  #firstName="ngModel"
-                placeholder="FirstName">
-                <div [hidden]="firstName.valid" class="alert">
+                formControlName = "firstName" placeholder="FirstName">
+                <div *ngIf="designerForm.controls['firstName'].invalid" class="alert">
                   This field is required!
                 </div>
               </td>
@@ -20,9 +18,8 @@
               <th><label for="f">LastName:</label></th>
               <td>
                 <input type="text" class="form-control" id="f" name = 'lastName' 
-                [(ngModel)]="designer.lastName" required  #lastName="ngModel"
-                placeholder="LastName">
-                <div [hidden]="lastName.valid" class="alert">
+                formControlName = "lastName" placeholder="LastName">
+                <div *ngIf="designerForm.controls['lastName'].invalid" class="alert">
                   This field is required!
                 </div>
               </td>
@@ -31,17 +28,15 @@
               <th><label for="biography">Biography:</label></th>
               <td>
                 <textarea class="form-control" rows="5" id="biography" name = 'bio' 
-                [(ngModel)]="designer.bio" placeholder="Biography"></textarea>
+                formControlName = "bio" placeholder="Biography"></textarea>
               </td>
             </tr>
             <tr>
               <th><label for="url">Photo:</label></th>
               <td>
                 <input type="text" class="form-control" id="url" name = 'photoUrl' 
-                [(ngModel)]="designer.photoUrl" #photoUrl="ngModel"
-                pattern='(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?'
-                placeholder="Url">
-                <div [hidden]="photoUrl.valid" class="alert">
+                formControlName = "photoUrl" placeholder="Url">
+                <div *ngIf="designerForm.controls['photoUrl'].invalid" class="alert">
                   Url is not valid!
                 </div>
               </td>
@@ -49,12 +44,10 @@
           </tbody>
         </table>
       <div>
-        <button type="submit" (click)="goBack()" class="btn btn-success" 
+        <button type="button" (click)="goBack()" class="btn btn-success" 
         >BACK</button>
-        <button *ngIf="!change" type="submit" (click)="onSubmit()" class="btn btn-primary add"
-        [disabled]="form.form.invalid">ADD  DESIGNER</button>
-        <button *ngIf="change" type="button" class="btn btn-primary add" [disabled]="form.form.invalid" 
-        (click)="onSubmit()">SAVE CHANGES</button>
+        <button type="submit" class="btn btn-primary add"[disabled]="designerForm.invalid">
+        {{buttonTitle}}</button>
       </div>
     </form>
 </div>

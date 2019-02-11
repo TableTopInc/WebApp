@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatAutocompleteModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,13 +21,15 @@ import { DesignerRolesModule } from './designer-roles/designer-roles.module';
 import { GameDesignersModule } from './game-designers/game-designers.module';
 import { ModalConfirmComponent } from './core/modal-confirm/modal-confirm.component';
 import { ProgressSpinnerComponent } from './core/progress-spinner/progress-spinner.component';
+import { TagComponent } from './tag/tag.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalConfirmComponent,
-    ProgressSpinnerComponent
+    ProgressSpinnerComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,10 @@ import { ProgressSpinnerComponent } from './core/progress-spinner/progress-spinn
     NgbModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    Ng4LoadingSpinnerModule.forRoot()
+    Ng4LoadingSpinnerModule.forRoot(),
+    NgSelectModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [
     GameService,
@@ -56,5 +61,3 @@ import { ProgressSpinnerComponent } from './core/progress-spinner/progress-spinn
   entryComponents: [ModalConfirmComponent, ProgressSpinnerComponent]
 })
 export class AppModule { }
-
-platformBrowserDynamic().bootstrapModule(AppModule);

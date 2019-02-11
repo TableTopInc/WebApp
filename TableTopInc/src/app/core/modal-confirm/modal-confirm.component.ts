@@ -4,7 +4,7 @@ import { MatDialogRef } from '@angular/material';
 @Component({
   selector: 'app-modal-confirm',
   templateUrl: './modal-confirm.component.html',
-  styleUrls: ['./modal-confirm.component.scss']
+  styleUrls: ['./modal-confirm.component.scss'],
 })
 export class ModalConfirmComponent implements OnInit {
 

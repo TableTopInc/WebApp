@@ -10,6 +10,7 @@ import { ItemRoleComponent } from './designer-roles/item-role/item-role.componen
 import { ListDesignersComponent } from './game-designers/list-designers/list-designers.component';
 import { AddDesignerComponent } from './game-designers/add-designer/add-designer.component';
 import { ItemDesignerComponent } from './game-designers/item-designer/item-designer.component';
+import { TagComponent } from './tag/tag.component';
 
 const routes: Routes = [
   { path: '', component: MyGamesComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'gameDesigners', component: ListDesignersComponent },
   { path: 'addDesigner', component: AddDesignerComponent },
   { path: 'editDesigner/:id', component: AddDesignerComponent },
+  { path: 'tag', component: TagComponent },
   { path: '**',   redirectTo: '', pathMatch: 'full' }
 ];
 

@@ -1,27 +1,21 @@
  
   <div class="conteiner">
-    <h1 *ngIf="change">Edit role.</h1>
-    <h1 *ngIf="!change">Add new role.</h1>
-    <form #form='ngForm' (ngSubmit)='form.reset()'>
+    <h1>{{pageTitle}}</h1>
+    <form class = "form" [formGroup] = 'roleForm' (ngSubmit)='onSubmit()' novalidate>
         <table class="table table-hover">
             <tbody>
                 <tr>
                 <th>Title</th>
                 <td>
-                    <input type="text" class="form-control" id="t" name = 'title' [(ngModel)]="role.title" 
-                    required  #title="ngModel" placeholder="Title">
-                    <div [hidden]="title.valid" class="alert">
+                    <input type="text" class="form-control" id="t" formControlName = "title" placeholder="Title">
+                    <div *ngIf="roleForm.controls['title'].invalid" class="alert">
                       This field is required!
                     </div>
                 </td>
                 </tr>
             </tbody>
         </table>
-        <button type="submit" (click)="goBack()" class="btn btn-success" 
-        >BACK</button>
-        <button *ngIf="!change" type="submit" (click)="onSubmit()" class="btn btn-primary add" 
-        [disabled]="form.form.invalid">ADD  ROLE</button>
-        <button *ngIf="change" type="button" class="btn btn-primary add" [disabled]="form.form.invalid" 
-        (click)="onSubmit()">SAVE CHANGES</button>
+        <button type="button" (click)="goBack()" class="btn btn-success">BACK</button>
+        <button type="submit" class="btn btn-primary add" [disabled]="roleForm.invalid">{{buttonTitle}}</button>
     </form>
   </div>

@@ -14,8 +14,7 @@ games: Game[] = [];
 
 private gamesUrl = this.configService.url + '/api/games';
 
-    constructor(private http: HttpClient, private location: Location, private configService: ConfigService) {
-    }
+    constructor(private http: HttpClient, private location: Location, private configService: ConfigService) {}
 
     public headers = new HttpHeaders().append('accept', 'application/json');
 
