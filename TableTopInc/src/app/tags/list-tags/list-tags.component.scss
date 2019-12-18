@@ -1,0 +1,62 @@
+.conteiner{
+    margin-top: 135px;
+    position: relative;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+    width: 100%;
+    max-width: 700px;
+}
+.table{
+    width: 100%;
+    max-width: 700px;
+}
+ul{
+    padding-left: 15px;
+}
+li{
+    list-style-type: none;
+    list-style-position: inside;
+    margin-bottom: 5px;
+}
+li span{
+    font-weight: normal;
+    font-size: 16px;
+    display: block;
+    width: 50%;
+    float: left;
+    padding-top: 5px;
+}
+.btn{
+    margin-right: 10px;
+    font-size: 14px;
+}
+.button{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.edit-tag{
+    background-color: white;
+    z-index: 120;
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: solid 2px red;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    padding: 10px;
+}
+.edit-tag input{
+    margin-bottom: 10px;
+}
+.delete{
+    float: right;
+}
+.add{
+    float: right;
+    margin: 0;
+}

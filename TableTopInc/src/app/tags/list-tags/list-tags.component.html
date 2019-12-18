@@ -1,0 +1,35 @@
+<div class="conteiner">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Group</th>
+          <th>Tag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = 'let group of allGroup'>
+          <td>{{group.title}}
+            <div>
+            <input type="button" value="Edit group" class="btn btn-success"  routerLink="/editGroup/{{group.id}}/type"/>
+            <input type="button" value="Delete group" (click)="deleteGroup(group)"
+            class="btn btn-danger"/>
+            </div>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor = 'let tag of group.tags'>
+                <span>{{tag.title}}</span>
+                <input type="button" value="Edit tag" class="btn btn-success" routerLink="/editTag/{{tag.id}}"/>
+                <input type="button" value="Delete" (click)="deleteTag(tag)" 
+                class="btn btn-danger delete" />
+              </li>
+            </ul>
+         </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button">
+      <button type="button" class="btn btn-success" (click)="goBack()">BACK</button>
+      <button type="button" class="btn btn-primary" [routerLink]="['/addTag']">ADD TAG/GROUP</button>
+    </div>
+  </div>

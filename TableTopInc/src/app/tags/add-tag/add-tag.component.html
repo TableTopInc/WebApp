@@ -1,0 +1,40 @@
+<div class="container">
+  <form [formGroup]='addGroupForm'>
+    <div *ngIf='showAddGroup'>
+      <h2>{{groupTitle}}</h2>
+      <input class="form-control" type="text" formControlName='addGroup' placeholder="Add new group" />
+      <input type="button" value="{{groupButton}}" class="btn btn-primary" (click)="addGroup()"
+        [disabled]='addGroupForm.invalid' />
+      <input *ngIf='editButton' type="button" value="BACK" (click)="goBack()" class="btn btn-success" />
+    </div>
+    <div *ngIf='showAddTag'>
+      <h2>{{tagTitle}}</h2>
+      <form [formGroup]='addTagForm'>
+        <div *ngIf='showAddGroup'>
+          <input class="form-control select" type="text" formControlName='selectGroup' [matAutocomplete]="auto"
+            placeholder="Select group" />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let group of filteredOptions | async" [value]="group.title">
+              {{group.title}}
+            </mat-option>
+          </mat-autocomplete>
+          <div *ngIf="addTagForm.errors?.outsideRange" class="alert">
+            Select a group from the list or add a new group!
+          </div>
+        </div>
+        <input class="form-control" type="text" formControlName='addTag' placeholder="Add new tag" />
+        <div *ngIf="addTagForm.controls['addTag'].invalid" class="alert">
+          Enter new tag name!
+        </div>
+        <input *ngIf='showAddGroup' type="button" value="{{tagButton}}" class="btn btn-primary" (click)="onSubmit()"
+          [disabled]='addTagForm.errors?.outsideRange || addTagForm.invalid' />
+        <input *ngIf='editButton' type="button" value="{{tagButton}}" class="btn btn-primary" (click)="onSubmit()" />
+        <input type="button" value="BACK" (click)="goBack()" class="btn btn-success" />
+      </form>
+    </div>
+  </form>
+</div>
+<div *ngIf='confirm' class="confirm">
+  <p>A new group <span>"{{newGroupTitle}}"</span> is added and is available in the list of groups.</p>
+  <input type="button" value="OK" (click)="close()" class="btn btn-success" />
+</div>

@@ -11,7 +11,7 @@ export class NavComponent implements OnInit {
     {value: 'Games',  url: ''},
     {value: 'Game designer roles',  url: '/designerRoles'},
     {value: 'Game designers', url: '/gameDesigners'},
-    {value: 'Tag', url: '/tag'}];
+    {value: 'Tag', url: '/tags'}];
 
   constructor() { }
 

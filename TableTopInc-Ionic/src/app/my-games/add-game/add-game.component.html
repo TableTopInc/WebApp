@@ -1,0 +1,108 @@
+<ion-content [scrollEvents]="true">
+<div class="conteiner">
+  <h1>{{pageTitle}}</h1>
+  <form  class = 'form' [formGroup] = 'addForm' (ngSubmit)='onSubmit()' novalidate>
+      <table class="table table-hover">
+          <tbody>
+            <tr>
+              <th><label  for="t">Title:</label></th>
+              <td>
+                <input  class="form-control title" type="text"  id="t" formControlName = "title"
+                placeholder="Title">
+                <div *ngIf="addForm.controls['title'].invalid" class="alert">
+                    This field is required!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="yr">Year of release:</label></th>
+              <td>
+                <input type="text" class="form-control" id="yr" formControlName = 'yearReleased'
+                placeholder="Year of release">
+                <div *ngIf="addForm.controls['yearReleased'].invalid" class="alert">
+                  Insert the year!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="url">Cover:</label></th>
+              <td>
+                <input type="text" class="form-control" id="url" formControlName = 'coverUrl'
+                placeholder="CoverUrl">
+                <div *ngIf="addForm.controls['coverUrl'].invalid" class="alert">
+                  Url is not valid!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="pf">Players from-to:</label></th>
+              <td>
+                <input type="number" class="form-control from" id="pf" formControlName = 'playersFrom'
+                placeholder="from">
+                <div class="dash"><span>-</span></div>
+                <input type="number" class="form-control to" id="pf" formControlName = 'playersTo'
+                placeholder="to">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="sf">Session from-to:</label></th>
+              <td>
+                <input type="number" class="form-control from" id="pf" formControlName = 'sessionMinutesFrom'
+                placeholder="from">
+                <div class="dash"><span>-</span></div>
+                <input type="number" class="form-control to" id="pf" formControlName = 'sessionMinutesTo'
+                placeholder="to">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="af">Age:</label></th>
+              <td>
+                <input type="number" class="form-control" id="pf" formControlName = 'ageFrom' placeholder="Age">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="comment">Description:</label></th>
+              <td>
+                <textarea class="form-control" rows="5" id="comment" formControlName = 'description'
+                placeholder="Description"></textarea>
+              </td>
+            </tr> 
+            <tr>
+              <th><label for="comment">Tags:</label></th>
+              <td>
+                <div [formGroup] = 'tagForm'>
+                <ul>
+                  <li *ngFor="let tag of listTags">
+                     <span>
+                       {{tag.title}}
+                      </span>
+                      <button type="button" class="del-tag" (click) = "deleteTag(tag)"></button>
+                  </li>
+                </ul>
+                <input class="form-control tag" type="text" matInput placeholder="Tags" formControlName="tag" 
+                [matAutocomplete]="autoGroup">
+                <button type="button" (click) = "addTag()" class="btn btn-success add-tag"
+                [disabled]= 'tagForm.errors?.outsideRange && title !=""'>ADD TAG</button>
+                <mat-autocomplete #autoGroup="matAutocomplete">
+                  <mat-optgroup *ngFor="let group of tagGroupOptions | async" [label]="group.title">
+                    <mat-option *ngFor="let tag of group.tags" [value]="tag.title">
+                    {{tag.title}}
+                    </mat-option>
+                  </mat-optgroup>
+                </mat-autocomplete>
+                <div *ngIf="tagForm.errors?.outsideRange && title !=''" class="alert">
+                    Select from the list of tags or
+                    <button type="button" class="btn btn-success new-tag" routerLink="/addTag">ADD NEW TAG</button>
+                </div>
+              </div>
+              </td>
+            </tr> 
+          </tbody>
+        </table>
+      <div class="button">
+        <button type="button" (click)="goBack()" class="btn btn-success">BACK</button>
+        <button type="submit" class="btn btn-primary add" [disabled]="addForm.invalid">{{buttonTitle}}</button>
+      </div>
+    </form>
+</div>
+</ion-content>

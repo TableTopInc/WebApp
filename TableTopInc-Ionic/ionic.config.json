@@ -1,0 +1,8 @@
+{
+  "name": "TableTopInc-Ionic",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

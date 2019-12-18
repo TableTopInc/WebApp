@@ -22,6 +22,7 @@ margin-left: 50px;
     background-color: rgb(250, 154, 154);
     border: 2px solid red;
     text-align: center;
+    margin-top: 5px;
 }
 th{
     width: 200px;
@@ -48,6 +49,50 @@ th{
 span{
     font-weight: bolder;
     font-size: 20px;
+}
+ul{
+    padding-left: 15px;
+}
+li{
+    list-style-type: none;
+    list-style-position: inside;
+}
+li span{
+    font-weight: normal;
+    font-size: 16px;
+    display: block;
+    width: 30%;
+    float: left;
+    padding-top: 5px;
+}
+.tag{
+    width: 80%;
+    float: left;
+}
+.new-tag{
+    margin: 0;
+}
+.add-tag{
+    margin-left: 20px
+}
+.del-tag{
+    cursor: pointer;
+    background-image: url(../../../assets/img/delete.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    transition: 0.5s ease-in-out;
+}
+.del-tag:hover {
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 

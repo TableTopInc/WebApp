@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule, MatAutocompleteModule, MatInputModule } from '@angular/material';
 
 import { ListGamesComponent } from './list-games/list-games.component';
 import { MyGamesComponent } from './my-games.component';
@@ -22,6 +23,9 @@ import { ItemGameComponent } from './item-game/item-game.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   exports: [ListGamesComponent,
     MyGamesComponent,
