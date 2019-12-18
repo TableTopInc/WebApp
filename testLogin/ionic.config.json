@@ -1,8 +1,0 @@
-{
-  "name": "testLogin",
-  "integrations": {
-    "cordova": {},
-    "capacitor": {}
-  },
-  "type": "angular"
-}
